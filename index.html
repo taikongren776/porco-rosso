@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#5e526f" />
+    <meta name="description" content="A quiet flight above a sunset sea. A cinematic, real-time 3D tribute to the skies of Porco Rosso." />
+    <title>just breathe. — A flight at sunset</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+  <body>
+    <main id="experience" aria-label="Two vintage seaplanes flying over a golden sea at sunset">
+      <div class="fallback" aria-hidden="true"><div class="fallback-sun"></div><div class="fallback-sea"></div></div>
+      <canvas id="scene" aria-label="Animated sunset flight" role="img"></canvas>
+      <div class="film" aria-hidden="true"></div>
+      <div class="title"><h1>just breathe.</h1><div class="title-rule" aria-hidden="true"></div></div>
+      <footer class="footer"><div class="controls"><button id="pause" aria-label="Pause animation" title="Pause · Space"><svg id="pause-icon" viewBox="0 0 24 24"><path d="M9 6v12M15 6v12"/></svg><svg id="play-icon" viewBox="0 0 24 24" hidden><path d="m9 5 10 7-10 7Z"/></svg></button><span class="control-divider"></span><button id="fullscreen" aria-label="Enter fullscreen" title="Fullscreen"><svg viewBox="0 0 24 24"><path d="M8 4H4v4m12-4h4v4M4 16v4h4m12-4v4h-4"/></svg></button></div></footer>
+      <div id="status" role="status" class="sr-only"></div>
+    </main>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
