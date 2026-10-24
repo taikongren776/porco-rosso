@@ -25,6 +25,27 @@ svg[hidden], button[hidden] { display: none; }
 .fallback { position: absolute; inset: 0; overflow: hidden; background: linear-gradient(#83728e, #c18b98 30%, #f6c28e 60%, #d99489 66%, #77758b 67%, #4d5c73); }
 .fallback-sun { position: absolute; top: 45%; left: 38%; width: 90px; height: 90px; border-radius: 50%; background: #ffe2a4; box-shadow: 0 0 90px 50px #ffe1a430; }
 .fallback-sea { position: absolute; inset: 64% 0 0; background: repeating-linear-gradient(178deg, transparent 0 12px, #efb29938 13px 14px), linear-gradient(90deg, transparent 25%, #f8c39860 40%, transparent 65%); }
-.unavailable #scene { display: none; }
+.unavailable #scene, .unavailable .flight-help, .unavailable .touch-controls { display: none; }
+.flight-help { position: absolute; bottom: 33px; left: 34px; margin: 0; font: 10px/1.9 system-ui, sans-serif; letter-spacing: .1em; color: #ffefd2b0; user-select: none; }
+.desktop-help > span { display: block; font-size: 9px; color: #ffefd277; }
+.touch-help, .touch-controls { display: none; }
+.touch-controls { position: absolute; inset: 0; pointer-events: none; }
+#joystick { position: absolute; width: 116px; height: 116px; bottom: max(26px, env(safe-area-inset-bottom)); left: 24px; border: 1px solid #ffefd244; border-radius: 50%; background: #24283c18; pointer-events: auto; touch-action: none; user-select: none; }
+.stick-cross::before, .stick-cross::after { content: ''; position: absolute; background: #ffefd21c; }
+.stick-cross::before { left: 50%; top: 15%; height: 70%; width: 1px; }
+.stick-cross::after { top: 50%; left: 15%; width: 70%; height: 1px; }
+.stick-knob { position: absolute; left: 50%; top: 50%; width: 42px; height: 42px; border: 1px solid #ffefd26b; background: #ffefd218; border-radius: 50%; transform: translate(calc(-50% + var(--stick-x, 0px)), calc(-50% + var(--stick-y, 0px))); pointer-events: none; }
+#joystick.active .stick-knob { background: #ffefd23d; }
+#boost { position: absolute; width: 58px; height: 58px; bottom: max(48px, env(safe-area-inset-bottom)); right: 30px; border: 1px solid #ffefd244; background: #24283c18; pointer-events: auto; touch-action: none; user-select: none; }
+#boost.active { background: #ffefd23d; opacity: 1; }
+.paused .touch-controls { opacity: .35; }
+@media (pointer: coarse), (max-width: 600px) {
+  .touch-controls, .touch-help { display: block; }
+  .desktop-help { display: none; }
+  .flight-help { bottom: max(153px, calc(env(safe-area-inset-bottom) + 130px)); left: 0; width: 100%; text-align: center; font-size: 9px; }
+  .footer { top: max(18px, env(safe-area-inset-top)); bottom: auto !important; right: 18px; }
+  .title { top: 70% !important; }
+}
+@media (max-height: 540px) { .title { top: 73% !important; } h1 { font-size: 52px; } .title-rule { display: none; } .flight-help { display: none; } #joystick { width: 96px; height: 96px; left: 18px; bottom: 16px; } #boost { bottom: 28px; right: 22px; } }
 @media (max-width: 600px) { .title { top: 72%; } h1 { font-size: clamp(54px, 13.5vw, 78px); } .footer { right: 18px; bottom: max(20px, env(safe-area-inset-bottom)); } .title-rule { margin-top: 23px; width: 26px; } }
 @media (prefers-reduced-motion: reduce) { #scene { transition: none; } }
